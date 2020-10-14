@@ -26,9 +26,7 @@ const Field = (props) => {
       <input
         onChange={props.handleChange}
         value={props.value}
-        name={props.name}
-        min="0"
-        placeholder="How many are available?"
+        name={props.id}
       />
     </FieldWrapper>
   )
