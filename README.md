@@ -1,7 +1,7 @@
 # 🏃‍♂️🏃‍♀️ Race Pace 💨
 A lightweight reactive web app which helps runners convert an distinct running pace to other relative pace measurements. The application is a single tier design built on-top of rails for possible expansion.
 
-The app is deployed live on heroku: `http://rx-race-pace.herokuapp.com/` 
+The app is deployed live on heroku: http://rx-race-pace.herokuapp.com/ 
 
 ## Running it locally
 1a. Clone or download the file. 
