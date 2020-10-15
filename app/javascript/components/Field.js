@@ -11,7 +11,7 @@ const FieldWrapper = styled.div`
 
   input {
     min-height: 30px;
-    border-radius: 4px;
+    border-radius: 5px;
     border: 1px solid #e6e6e6;
     margin: 0 0 12px 0;
     padding: 12px;

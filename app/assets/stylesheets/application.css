@@ -13,3 +13,30 @@
  *= require_tree .
  *= require_self
  */
+
+ @import url('https://fonts.googleapis.com/css?family=Open+Sans|Roboto+Mono|Roboto:400,500,700&display=swap');
+
+ :root {
+  --primary-color: #333f65;
+  --main-background-color: #f4f6f8;
+  --text-color: #454f5b;
+  --header-text-color: #161d25;
+}
+
+body {
+  margin: 0 0 0 0;
+  background-color: var(--main-background-color);
+  font-family: 'Roboto Mono', monospace !important;
+}
+
+h1, h2, h3, ul, li {
+  color: var(--header-text-color);
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+}
+
+p {
+  color: var(--text-color);
+  font-size: 14px;
+  font-family: 'Open Sans', sans-serif;
+}

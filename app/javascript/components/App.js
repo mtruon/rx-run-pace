@@ -1,5 +1,30 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, Fragment } from 'react'
+import styled from 'styled-components'
 import Field from './Field'
+
+const Wrapper = styled.div`
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  padding: 40px;
+`
+const Card = styled.div`
+  border: 1px solid #e6e6e6;
+  padding: 10px 25px;
+  background-color: white;
+  box-shadow: 8px 8px 6px -10px #b3c6ff;
+  border-radius: 5px;
+`
+
+const BottomBar = styled.div`
+  width: 100%;
+  position: fixed;
+  bottom: 0px;
+  display: flex;
+  padding-bottom: 5px;
+  justify-content: center;
+`
 
 const App = () => {
   // Constants for math
@@ -11,7 +36,9 @@ const App = () => {
     minsKM: "0:00",
     minsMI: "0:00",
     fiveKM: "0:00",
-    tenKM: "0:00"
+    tenKM: "0:00",
+    marathon: "0:00",
+    halfMarathon: "0:00"
   })
 
   // Converts a formatted time string into seconds
@@ -81,9 +108,7 @@ const App = () => {
     }
     setInputData(newInputData)
   }
-
-  // 
-
+  
   // Converts minsKM in type Minute to their other respective representations
   const getPaceFromMinsKM = (key,pace) => {
     let seconds
@@ -96,6 +121,12 @@ const App = () => {
         break
       case "tenKM":
         seconds = pace * 10
+        break
+      case "marathon":
+        seconds = pace * marathonDistance
+        break
+      case "halfMarathon":
+        seconds = pace * (marathonDistance / 2)
         break
       default:
         return pace
@@ -115,6 +146,12 @@ const App = () => {
       case "tenKM":
         minsKM = pace / 10
         break
+      case "halfMarathon":
+        minsKM = pace / (marathonDistance / 2)
+        break
+      case "marathon":
+        minsKM = pace / (marathonDistance)
+        break
       default:
         return pace
     }
@@ -122,32 +159,51 @@ const App = () => {
   }
 
   return(
-    <div>
-      <Field
-        name={"mins/KM"}
-        id={"minsKM"}
-        value={inputData["minsKM"]}
-        handleChange={handleChange}
-      />
-      <Field
-        name={"mins/MI"}
-        id={"minsMI"}
-        value={inputData["minsMI"]}
-        handleChange={handleChange}
-      />
-      <Field
-        name={"5K"}
-        id={"fiveKM"}
-        value={inputData["fiveKM"]}
-        handleChange={handleChange}
-      />
-      <Field
-        name={"10K"}
-        id={"tenKM"}
-        value={inputData["tenKM"]}
-        handleChange={handleChange}
-      />
-    </div>
+    <Fragment>
+      <Wrapper>
+        <Card>
+          <Field
+            name={"mins/KM"}
+            id={"minsKM"}
+            value={inputData["minsKM"]}
+            handleChange={handleChange}
+          />
+          <Field
+            name={"mins/MI"}
+            id={"minsMI"}
+            value={inputData["minsMI"]}
+            handleChange={handleChange}
+          />
+          <Field
+            name={"5K"}
+            id={"fiveKM"}
+            value={inputData["fiveKM"]}
+            handleChange={handleChange}
+          />
+          <Field
+            name={"10K"}
+            id={"tenKM"}
+            value={inputData["tenKM"]}
+            handleChange={handleChange}
+          />
+          <Field
+            name={"Half Marathon"}
+            id={"halfMarathon"}
+            value={inputData["halfMarathon"]}
+            handleChange={handleChange}
+          />
+          <Field
+            name={"Marathon"}
+            id={"marathon"}
+            value={inputData["marathon"]}
+            handleChange={handleChange}
+          />
+        </Card>
+      </Wrapper>
+      <BottomBar>
+        Made with 🏃‍♂️🏃‍♀️💨 by Michael Truong.
+      </BottomBar>
+    </Fragment>
   )
 }
 
